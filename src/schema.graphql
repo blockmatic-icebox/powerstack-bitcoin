@@ -1,0 +1,16 @@
+input custom_mutation_input {
+  account: String!
+}
+
+type custom_mutation_output {
+  success: Boolean!
+  error: String
+}
+
+type Mutation {
+  custom_mutation(data: custom_mutation_input): custom_mutation_output
+}
+
+type Query {
+  apollo_health_check: Boolean
+}
