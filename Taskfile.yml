@@ -1,0 +1,33 @@
+version: '3'
+
+dotenv: ['.env']
+silent: true
+
+tasks:
+  build:
+    cmds:
+      - docker build -t powerstack-apollo:local .
+
+  run:
+    cmds:
+      - docker run --name powerstack-apollo --env-file .env -p 3301:3301 -d powerstack-apollo:local
+
+  id:
+    cmds:
+      - docker ps -aqf "name=^powerstack-apollo$"
+
+  stop:
+    cmds:
+      - docker stop powerstack-apollo
+
+  start:
+    cmds:
+      - docker start powerstack-apollo
+
+  restart:
+    cmds:
+      - docker restart powerstack-apollo
+
+  kill:
+    cmds:
+      - docker kill powerstack-apollo

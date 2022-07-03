@@ -1,11 +1,41 @@
 # PowerStack Apollo
 
-Custom mutations for PowerStack Backend
+Custom mutations server for PowerStack Backend
 
 https://www.apollographql.com/docs/apollo-server/api/apollo-server/
 
+## Requirements
+
+- Docker https://www.docker.com
+- Docker Compose https://docs.docker.com/compose
+- Task https://taskfile.dev
+
+## Conventions
+
+https://github.com/blockmatic/powerstack-playbook
+
+## Directory Structure
+
+```
+.
+├── src/ ................................................ source code
+├── taskfile.yaml........................................ dev tasks config
+└── .env ................................................ environment variables ([ hasura variables] )
+```
 
 ## Getting Started
+
+### Docker
+
+```
+git clone git@github.com:blockmatic/powerstack-apollo.git
+cd powerstack-apollo
+cp .env-sample .env # and edit the environment variables
+task build
+task run
+```
+
+### NodeJS
 
 First, run the development server:
 
@@ -15,13 +45,13 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3002](http://localhost:3002) with your browser to see the result.
+Open [http://localhost:3301](http://localhost:3301) with your browser to see the result.
 
 You can start editing the page by modifying `app/routes/index.tsx`. The page auto-updates as you edit the file.
 
 ## Commands
 
-- `dev`: runs your application on `localhost:3002`
+- `dev`: runs your application on `localhost:3301`
 - `build`: creates the production build version
 - `start`: starts a simple server with the build production code
 
@@ -29,21 +59,31 @@ You can start editing the page by modifying `app/routes/index.tsx`. The page aut
 
 ```
 # Build the image
-docker build -t image_name .
+docker build -t powerstack-apollo:local .
 
 # Start a container
-docker run -p 3002:3002 -d image_name
+docker run --name powerstack-apollo --env-file .env -p 3301:3301 -d powerstack-apollo:local
 
 # Get container ID
-docker ps
+docker ps -aqf "name=^powerstack-apollo$"
 
 # Print app output
-docker logs <container id>
+docker logs -f powerstack-apollo
+
+# Stop, start, restart, kill
+docker stop powerstack-apollo
+docker start powerstack-apollo
+docker restart powerstack-apollo
+docker kill powerstack-apollo
 ```
 
-## Contributing
+## Deployment
 
-Read the [contributing guidelines](https://developers.blockmatic.io) for details.
+...
+
+## Learn
+
+https://learn.blockmatic.io
 
 ## Blockmatic
 
