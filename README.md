@@ -1,6 +1,12 @@
 # PowerStack Apollo
 
-Custom mutations server for PowerStack Backend
+Custom mutations server for PowerStack backends
+
+⚡️ [PowerStack: a powerful fullstack web3 development framework](https://powerstack.xyz).
+
+_Disclaimer: This is a work in progress. Will be finalized soon._
+
+## General
 
 https://www.apollographql.com/docs/apollo-server/api/apollo-server/
 
