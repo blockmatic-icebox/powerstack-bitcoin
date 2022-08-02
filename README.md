@@ -16,10 +16,6 @@ https://www.apollographql.com/docs/apollo-server/api/apollo-server/
 - Docker Compose https://docs.docker.com/compose
 - Task https://taskfile.dev
 
-## Conventions
-
-https://github.com/blockmatic/powerstack-playbook
-
 ## Directory Structure
 
 ```
@@ -27,18 +23,6 @@ https://github.com/blockmatic/powerstack-playbook
 ├── src/ ................................................ source code
 ├── taskfile.yaml........................................ dev tasks config
 └── .env ................................................ environment variables ([ hasura variables] )
-```
-
-## Getting Started
-
-### Docker
-
-```
-git clone git@github.com:blockmatic/powerstack-apollo.git
-cd powerstack-apollo
-cp .env-sample .env # and edit the environment variables
-task build
-task run
 ```
 
 ### NodeJS
@@ -86,10 +70,6 @@ docker kill powerstack-apollo
 ## Deployment
 
 ...
-
-## Learn
-
-https://learn.blockmatic.io
 
 ## Blockmatic
 
